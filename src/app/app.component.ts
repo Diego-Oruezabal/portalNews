@@ -5,7 +5,7 @@ import { FavoriteComponent } from "./components/favorite/favorite.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FavoriteComponent],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
