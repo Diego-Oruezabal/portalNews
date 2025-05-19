@@ -8,23 +8,23 @@
                             </div><!-- end blog-top -->
 
                             <div class="blog-list clearfix">
-                                <div class="blog-box row">
+                                <div *ngFor="let news of listNews" class="blog-box row">
                                     <div class="col-md-4">
                                         <div class="post-media">
-                                            <a href="tech-single.html" title="">
-                                                <img src="upload/tech_blog_01.jpg" alt="" class="img-fluid">
+                                            <a>
+                                                <img [src]="news.image_url" alt="" class="img-fluid">
                                                 <div class="hovereffect"></div>
                                             </a>
                                         </div><!-- end media -->
                                     </div><!-- end col -->
 
                                     <div class="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">Top 10 phone applications and 2017 mobile design awards</a></h4>
-                                        <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
+                                        <h4><a >{{ news.title  }}</a></h4>
+                                        <p> {{ news.summary }}</p>
                                         <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small>
-                                        <small><a href="tech-single.html" title="">21 July, 2017</a></small>
-                                        <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                        <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 1114</a></small>
+                                        <small><a href="tech-single.html" title=""> {{ news.published_at | date: 'dd MMM yyyy' }}</a></small>
+                                        <small><a href="tech-author.html" title="">{{ news.news_site }}</a></small>
+
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
 
