@@ -20,4 +20,9 @@ export class NewsService {
   search(query: string): Observable<any> {
     return this.http.get<any>(`${url_base}?title_contains=${query}`);
   }
+
+  ordeingByTitle(): Observable<any> {
+    const url = `${url_base}?has_event=false&has_launch=false&ordering=published_at&limit=10`;
+    return this.http.get<any>(url);
+}
 }

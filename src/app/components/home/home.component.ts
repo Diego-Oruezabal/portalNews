@@ -51,6 +51,20 @@ export class HomeComponent {
       })
   }
 
+
+  orderingByTitle() {
+    this.newsService.ordeingByTitle().subscribe({
+      next: (result) => {
+        this.listNews = result.results;
+        console.log(this.listNews);
+      },
+      error: (error) => {
+        this.showError();
+        console.error('Error ordering news:', error);
+      }
+    });
+  }
+
   showError() {
     Swal.fire({
       icon: 'error',
