@@ -6,7 +6,7 @@
                             <div class="blog-top clearfix">
                                 <h4 class="pull-left">Noticias recientes <a href="#"><i class="fa fa-rss"></i></a></h4>
                                 <small class="blog-meta big-meta col-md-8 firstsmall margin">
-                                    <a class="bg-orange hand" (click)="orderingByTitle()">Ordenar por título</a>
+                                    <a class="bg-orange hand" (click)="orderingByTitle()">Ordenar por fecha</a>
                                 </small>
                             </div><!-- end blog-top -->
 
@@ -41,11 +41,11 @@
                             <div class="col-md-12">
                                 <nav aria-label="Page navigation">
                                     <ul class="pagination justify-content-start">
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item">
+                                            <a class="page-link" (click)="getNews(previous)">Anterior</a>
+                                        </li>
                                         <li class="page-item">
-                                            <a class="page-link" href="#">Next</a>
+                                            <a class="page-link" (click)="getNews(next)">Siguiente</a>
                                         </li>
                                     </ul>
                                 </nav>

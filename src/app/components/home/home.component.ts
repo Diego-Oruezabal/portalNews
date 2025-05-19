@@ -13,15 +13,22 @@ export class HomeComponent {
 
   listNews:any;
 
+  private apiUrl = 'https://api.spaceflightnewsapi.net/v4/articles/?has_event=false&has_launch=false&limit=10';
+
+  next:any;
+  previous:any;
+
   constructor(private newsService: NewsService) {
-    this.getNews();
+    this.getNews(this.apiUrl);
 
   }
 
-  getNews() {
-    this.newsService.getNews().subscribe({
+  getNews(url:any) {
+    this.newsService.getNews(url).subscribe({
       next: (result) => {
         this.listNews = result.results;
+        this.next = result.next;
+        this.previous = result.previous;
         console.log(this.listNews);
       },
       error: (error) => {
@@ -35,7 +42,7 @@ export class HomeComponent {
     searchNews(query: string) {
 
       if(query.length === 0) {
-        return this.getNews();
+        return this.getNews(this.apiUrl);
       }
 
 
@@ -53,7 +60,7 @@ export class HomeComponent {
 
 
   orderingByTitle() {
-    this.newsService.ordeingByTitle().subscribe({
+    this.newsService.orderingByTitle().subscribe({
       next: (result) => {
         this.listNews = result.results;
         console.log(this.listNews);
