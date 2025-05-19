@@ -57,7 +57,7 @@
                                 <div class="navbar-new mr-2">
                                     <div class="newsletter-widget text-left">
                                         <form class="form-inline">
-                                            <input type="text" class="form-control" placeholder="Buscar noticia..." name="search">
+                                            <input type="text" #input (keyup)="searchNews(input.value)" class="form-control" placeholder="Buscar noticia..." name="search">
                                             <button type="submit" class="btn btn-primary">Buscar</button>
 
                                         </form>

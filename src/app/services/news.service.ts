@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+const url_base = 'https://api.spaceflightnewsapi.net/v4/articles/';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,5 +15,9 @@ export class NewsService {
 
   getNews(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
+  }
+
+  search(query: string): Observable<any> {
+    return this.http.get<any>(`${url_base}?title_contains=${query}`);
   }
 }
